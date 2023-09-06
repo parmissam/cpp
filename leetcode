@@ -13,3 +13,25 @@ class Solution(object):
                 result.append(num)
         
         return(result)
+.......................................................................................
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        maximum = 0
+        for i in range (len (s)):
+            m=0
+            mylist=[]
+            for word in range (i,len(s)):
+                if s[word] not in mylist:
+                    m+=1
+                    mylist.append(s[word])
+                    maximum=max(maximum,m)
+                else:
+                    break
+            
+
+        return maximum
+.............................................................................................
