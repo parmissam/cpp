@@ -66,3 +66,38 @@ class Solution(object):
                 return True
         return False
 ......................................................................................................
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+Return the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.
+class Solution(object):
+    def change(self, amount, coins):
+        """
+        :type amount: int
+        :type coins: List[int]
+        :rtype: int
+        """
+        dp = [0] * (amount + 1)
+        dp[0] = 1
+        
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] += dp[i - coin]
+        
+        return dp[amount]
+............................................................................................................
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        mydic = {}
+        for element in nums:
+            if element in mydic:
+                mydic[element] += 1
+            else:
+                mydic[element] = 1
+        unique_elements = sorted(mydic.keys(), key=lambda x: mydic[x], reverse=True)
+        return unique_elements[:k]
