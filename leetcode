@@ -2,7 +2,6 @@ Given an integer array nums, in which exactly two elements appear only once and 
 
 You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
 
-
 class Solution(object):
     def singleNumber(self, nums):
        
